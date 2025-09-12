@@ -5,9 +5,13 @@ require("dotenv").config();
 const app = express();
 app.use(express.json());
 
-// ✅ Routes
+// ✅ Product routes
 const productRoutes = require("./routes/productRoutes");
 app.use("/api/products", productRoutes);
+
+// ✅ Auth routes
+const authRoutes = require("./routes/authRoutes");
+app.use("/api/auth", authRoutes);
 
 // 🔍 Debug: check if .env is loading
 console.log("Loaded MONGO_URI:", process.env.MONGO_URI);
