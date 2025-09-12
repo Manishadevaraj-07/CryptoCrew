@@ -1,13 +1,416 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriTrace - Farm to Fork Transparency</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        .blockchain-pulse {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+        .hero-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="gradient-bg text-green-800 shadow-2xl hero-pattern">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-lg">
+                        <span class="text-3xl">🌱</span>
+                    </div>
+                    <div>
+                        <h1 class="text-3xl font-bold text-green-800">AgriTrace</h1>
+                        <p class="text-green-700 text-sm">Blockchain-Powered Supply Chain</p>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <div class="flex items-center space-x-2 bg-white bg-opacity-20 rounded-lg px-3 py-2">
+                        <div class="w-2 h-2 bg-green-300 rounded-full blockchain-pulse"></div>
+                        <span class="text-sm text-green-800">Blockchain Active</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-green-800 py-20 hero-pattern">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-5xl md:text-6xl font-bold mb-6 text-green-800">
+                Complete Farm to Fork
+                <span class="block text-green-700">Transparency</span>
+            </h2>
+            <p class="text-xl md:text-2xl mb-8 max-w-4xl mx-auto text-green-700">
+                Revolutionary blockchain-based agricultural tracing system ensuring complete supply chain transparency, 
+                preventing fraud, and building consumer trust through immutable records.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button onclick="scrollToPortals()" class="bg-white text-green-600 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-green-50 transition-all shadow-lg">
+                    Explore Portals
+                </button>
+                <button onclick="scrollToFeatures()" class="border-2 border-green-800 text-green-800 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white hover:text-green-600 transition-all">
+                    Learn More
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Statistics -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 text-center">
+                <div class="p-6">
+                    <div class="text-4xl font-bold text-green-600 mb-2">100%</div>
+                    <div class="text-gray-600">Supply Chain Visibility</div>
+                </div>
+                <div class="p-6">
+                    <div class="text-4xl font-bold text-blue-600 mb-2">0%</div>
+                    <div class="text-gray-600">Data Manipulation Risk</div>
+                </div>
+                <div class="p-6">
+                    <div class="text-4xl font-bold text-purple-600 mb-2">24/7</div>
+                    <div class="text-gray-600">Real-time Tracking</div>
+                </div>
+                <div class="p-6">
+                    <div class="text-4xl font-bold text-orange-600 mb-2">∞</div>
+                    <div class="text-gray-600">Immutable Records</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- User Portals -->
+    <section id="portals" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h3 class="text-4xl font-bold text-gray-800 mb-4">Access Your Portal</h3>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Each stakeholder in the supply chain has a dedicated portal with specific tools and capabilities
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Farmer Portal -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg card-hover cursor-pointer" onclick="alert('Farmer Portal - Add product details, cultivation data, and generate QR codes for blockchain storage')">
+                    <div class="w-20 h-20 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <span class="text-4xl">🚜</span>
+                    </div>
+                    <h4 class="text-2xl font-bold text-gray-800 mb-4 text-center">Farmer Portal</h4>
+                    <div class="space-y-3 text-gray-600 mb-6">
+                        <div class="flex items-center">
+                            <span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                            <span>Add product details & batch info</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                            <span>Store data on IPFS & blockchain</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                            <span>Generate QR codes</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                            <span>Set farm gate prices</span>
+                        </div>
+                    </div>
+                    <button class="w-full bg-green-600 text-white py-3 rounded-xl hover:bg-green-700 transition-colors font-semibold">
+                        Access Farmer Portal
+                    </button>
+                </div>
+
+                <!-- Distributor Portal -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg card-hover cursor-pointer" onclick="alert('Distributor Portal - Update certifications, track transfers, and manage distribution pricing')">
+                    <div class="w-20 h-20 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <span class="text-4xl">🚛</span>
+                    </div>
+                    <h4 class="text-2xl font-bold text-gray-800 mb-4 text-center">Distributor Portal</h4>
+                    <div class="space-y-3 text-gray-600 mb-6">
+                        <div class="flex items-center">
+                            <span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
+                            <span>Add quality certifications</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
+                            <span>Track transport conditions</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
+                            <span>Update distribution prices</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
+                            <span>Verify batch transfers</span>
+                        </div>
+                    </div>
+                    <button class="w-full bg-blue-600 text-white py-3 rounded-xl hover:bg-blue-700 transition-colors font-semibold">
+                        Access Distributor Portal
+                    </button>
+                </div>
+
+                <!-- Retailer Portal -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg card-hover cursor-pointer" onclick="alert('Retailer Portal - Set final prices, manage inventory, and prepare products for consumer sale')">
+                    <div class="w-20 h-20 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <span class="text-4xl">🏪</span>
+                    </div>
+                    <h4 class="text-2xl font-bold text-gray-800 mb-4 text-center">Retailer Portal</h4>
+                    <div class="space-y-3 text-gray-600 mb-6">
+                        <div class="flex items-center">
+                            <span class="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
+                            <span>Set final retail prices</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
+                            <span>Manage storage conditions</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
+                            <span>Set expiry dates</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
+                            <span>Smart contract validation</span>
+                        </div>
+                    </div>
+                    <button class="w-full bg-purple-600 text-white py-3 rounded-xl hover:bg-purple-700 transition-colors font-semibold">
+                        Access Retailer Portal
+                    </button>
+                </div>
+
+                <!-- Consumer Portal -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg card-hover cursor-pointer" onclick="alert('Consumer Portal - Scan QR codes to view complete product history and verify authenticity')">
+                    <div class="w-20 h-20 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <span class="text-4xl">📱</span>
+                    </div>
+                    <h4 class="text-2xl font-bold text-gray-800 mb-4 text-center">Consumer Portal</h4>
+                    <div class="space-y-3 text-gray-600 mb-6">
+                        <div class="flex items-center">
+                            <span class="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
+                            <span>Scan QR codes instantly</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
+                            <span>View complete product history</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
+                            <span>Verify authenticity</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
+                            <span>Check price transparency</span>
+                        </div>
+                    </div>
+                    <button class="w-full bg-orange-600 text-white py-3 rounded-xl hover:bg-orange-700 transition-colors font-semibold">
+                        Scan QR Code
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features -->
+    <section id="features" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h3 class="text-4xl font-bold text-gray-800 mb-4">Revolutionary Features</h3>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Built on cutting-edge blockchain technology to ensure maximum transparency and trust
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-50 rounded-2xl p-8 text-center">
+                    <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <span class="text-3xl">⛓</span>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-800 mb-4">Blockchain Security</h4>
+                    <p class="text-gray-600">Immutable records stored on blockchain ensure data cannot be tampered with or manipulated by any party.</p>
+                </div>
+
+                <div class="bg-gray-50 rounded-2xl p-8 text-center">
+                    <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <span class="text-3xl">📦</span>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-800 mb-4">IPFS Storage</h4>
+                    <p class="text-gray-600">Decentralized storage ensures product data is always accessible and cannot be lost or corrupted.</p>
+                </div>
+
+                <div class="bg-gray-50 rounded-2xl p-8 text-center">
+                    <div class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <span class="text-3xl">🤖</span>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-800 mb-4">Smart Contracts</h4>
+                    <p class="text-gray-600">Automated validation of contracts, expiry dates, and price manipulation prevention through code.</p>
+                </div>
+
+                <div class="bg-gray-50 rounded-2xl p-8 text-center">
+                    <div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <span class="text-3xl">📊</span>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-800 mb-4">Price Transparency</h4>
+                    <p class="text-gray-600">Complete price history from farm to retail, preventing exploitation and ensuring fair pricing.</p>
+                </div>
+
+                <div class="bg-gray-50 rounded-2xl p-8 text-center">
+                    <div class="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <span class="text-3xl">🛡</span>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-800 mb-4">Fraud Prevention</h4>
+                    <p class="text-gray-600">Immutable tracking prevents counterfeit products and ensures authenticity throughout the supply chain.</p>
+                </div>
+
+                <div class="bg-gray-50 rounded-2xl p-8 text-center">
+                    <div class="w-16 h-16 bg-indigo-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <span class="text-3xl">⚡</span>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-800 mb-4">Real-time Updates</h4>
+                    <p class="text-gray-600">Instant updates across the entire supply chain as products move from farm to consumer.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h3 class="text-4xl font-bold text-gray-800 mb-4">How AgriTrace Works</h3>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Simple, secure, and transparent process from farm to fork
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="space-y-8">
+                    <div class="flex items-center space-x-6">
+                        <div class="w-16 h-16 bg-green-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">1</div>
+                        <div class="bg-white rounded-xl p-6 shadow-lg flex-1">
+                            <h4 class="text-xl font-bold text-gray-800 mb-2">🚜 Farm Registration</h4>
+                            <p class="text-gray-600">Farmers add product details, cultivation dates, and batch information. Data is securely stored on IPFS and linked to blockchain with QR code generation.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center space-x-6">
+                        <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">2</div>
+                        <div class="bg-white rounded-xl p-6 shadow-lg flex-1">
+                            <h4 class="text-xl font-bold text-gray-800 mb-2">🚛 Distribution Tracking</h4>
+                            <p class="text-gray-600">Distributors update batch details with certifications, transport conditions, and pricing. Every transaction is recorded immutably on the blockchain.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center space-x-6">
+                        <div class="w-16 h-16 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">3</div>
+                        <div class="bg-white rounded-xl p-6 shadow-lg flex-1">
+                            <h4 class="text-xl font-bold text-gray-800 mb-2">🏪 Retail Finalization</h4>
+                            <p class="text-gray-600">Retailers set final prices and storage conditions. Smart contracts validate all conditions and prevent price manipulation through automated enforcement.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center space-x-6">
+                        <div class="w-16 h-16 bg-orange-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">4</div>
+                        <div class="bg-white rounded-xl p-6 shadow-lg flex-1">
+                            <h4 class="text-xl font-bold text-gray-800 mb-2">📱 Consumer Verification</h4>
+                            <p class="text-gray-600">Consumers scan QR codes to instantly access complete product history, from origin to current location, ensuring full transparency and trust.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="gradient-bg text-green-800 py-20 hero-pattern">
+        <div class="container mx-auto px-4 text-center">
+            <h3 class="text-4xl font-bold mb-6 text-green-800">Ready to Transform Your Supply Chain?</h3>
+            <p class="text-xl mb-8 max-w-2xl mx-auto text-green-700">
+                Join the revolution in agricultural transparency. Build trust, prevent fraud, and ensure fair pricing for everyone in the supply chain.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button onclick="scrollToPortals()" class="bg-white text-green-600 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-green-50 transition-all shadow-lg">
+                    Get Started Now
+                </button>
+                <button onclick="alert('Contact our team for enterprise solutions and custom implementations')" class="border-2 border-green-800 text-green-800 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white hover:text-green-600 transition-all">
+                    Contact Sales
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-green-400 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center">
+                            <span class="text-2xl">🌱</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-green-400">AgriTrace</h4>
+                    </div>
+                    <p class="text-green-300">Revolutionizing agricultural supply chain transparency through blockchain technology.</p>
+                </div>
+                <div>
+                    <h5 class="font-semibold mb-4 text-green-400">Platform</h5>
+                    <ul class="space-y-2 text-green-300">
+                        <li><a href="#" class="hover:text-green-200 transition-colors">Farmer Portal</a></li>
+                        <li><a href="#" class="hover:text-green-200 transition-colors">Distributor Portal</a></li>
+                        <li><a href="#" class="hover:text-green-200 transition-colors">Retailer Portal</a></li>
+                        <li><a href="#" class="hover:text-green-200 transition-colors">Consumer App</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-semibold mb-4 text-green-400">Technology</h5>
+                    <ul class="space-y-2 text-green-300">
+                        <li><a href="#" class="hover:text-green-200 transition-colors">Blockchain</a></li>
+                        <li><a href="#" class="hover:text-green-200 transition-colors">IPFS Storage</a></li>
+                        <li><a href="#" class="hover:text-green-200 transition-colors">Smart Contracts</a></li>
+                        <li><a href="#" class="hover:text-green-200 transition-colors">QR Codes</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-semibold mb-4 text-green-400">Support</h5>
+                    <ul class="space-y-2 text-green-300">
+                        <li><a href="#" class="hover:text-green-200 transition-colors">Documentation</a></li>
+                        <li><a href="#" class="hover:text-green-200 transition-colors">API Reference</a></li>
+                        <li><a href="#" class="hover:text-green-200 transition-colors">Help Center</a></li>
+                        <li><a href="#" class="hover:text-green-200 transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-green-300">
+                <p>&copy; 2024 AgriTrace. All rights reserved. Built with blockchain technology for maximum transparency.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function scrollToPortals() {
+            document.getElementById('portals').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function scrollToFeatures() {
+            document.getElementById('features').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97dd4d0fe39c7e78',t:'MTc1NzY1ODA0OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
