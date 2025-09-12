@@ -2,17 +2,7 @@ const express = require("express");
 const Product = require("../models/Product");
 const router = express.Router();
 
-// Add product
-router.post("/add", async (req, res) => {
-  const sampleProduct = new Product({
-    name: "Test Product",
-    price: 100,
-    description: "This is a sample product"
-  });
-  await sampleProduct.save();
-  res.json({ message: "Sample product saved!", product: sampleProduct });
-});
-
+// ✅ Add product dynamically via Postman body
 router.post("/add", async (req, res) => {
   try {
     const newProduct = new Product(req.body);
@@ -23,15 +13,25 @@ router.post("/add", async (req, res) => {
   }
 });
 
+// ✅ Get all products
 router.get("/", async (req, res) => {
-  const products = await Product.find();
-  res.json(products);
+  try {
+    const products = await Product.find();
+    res.json(products);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 });
 
+// ✅ Get product by ID
 router.get("/:id", async (req, res) => {
-  const product = await Product.findOne({ productId: req.params.id });
-  if (!product) return res.status(404).json({ message: "❌ Product not found" });
-  res.json(product);
+  try {
+    const product = await Product.findById(req.params.id);
+    if (!product) return res.status(404).json({ message: "❌ Product not found" });
+    res.json(product);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 });
 
 module.exports = router;
