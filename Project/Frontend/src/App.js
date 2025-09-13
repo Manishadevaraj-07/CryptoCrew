@@ -8,6 +8,8 @@ import HowItWorks from './components/HowItWorks';
 import CallToAction from './components/CallToAction';
 import Footer from './components/Footer';
 import { fetchStatistics } from './api/api';
+import './styles.css';
+
 
 function App() {
     const [stats, setStats] = useState([]);
