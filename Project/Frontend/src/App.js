@@ -1,21 +1,23 @@
-import React from "react";
-import Header from "./components/Header";
-import Hero from "./components/Hero";
-import Statistics from "./components/Statistics";
-import Portals from "./components/Portals";
-import Features from "./components/Features";
-import Footer from "./components/Footer";
-import "./App.css";
-
+import React from 'react';
+import Header from './components/Header';
+import Hero from './components/Hero';
+import Statistics from './components/Statistics';
+import Portals from './components/Portals';
+import Features from './components/Features';
+import HowItWorks from './components/HowItWorks';
+import CallToAction from './components/CallToAction';
+import Footer from './components/Footer';
 
 function App() {
   return (
-    <div>
+    <div className="App bg-gray-50">
       <Header />
       <Hero />
       <Statistics />
       <Portals />
       <Features />
+      <HowItWorks />
+      <CallToAction />
       <Footer />
     </div>
   );

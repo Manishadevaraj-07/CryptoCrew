@@ -1,24 +1,28 @@
-import React from "react";
-import "../App.css";
-
-
-const stats = [
-  { number: "100%", label: "Supply Chain Visibility" },
-  { number: "0%", label: "Data Manipulation Risk" },
-  { number: "24/7", label: "Real-time Tracking" },
-  { number: "∞", label: "Immutable Records" }
-];
+// components/Statistics.js
+import React from 'react';
 
 const Statistics = () => {
   return (
-    <section className="statistics">
-      <div className="container stats-grid">
-        {stats.map((s, idx) => (
-          <div className="stat" key={idx}>
-            <div className="number">{s.number}</div>
-            <div className="label">{s.label}</div>
+    <section className="py-16 bg-white">
+      <div className="container mx-auto px-4">
+        <div className="grid md:grid-cols-4 gap-8 text-center">
+          <div className="p-6">
+            <div className="text-4xl font-bold text-green-600 mb-2">100%</div>
+            <div className="text-gray-600">Supply Chain Visibility</div>
           </div>
-        ))}
+          <div className="p-6">
+            <div className="text-4xl font-bold text-blue-600 mb-2">0%</div>
+            <div className="text-gray-600">Data Manipulation Risk</div>
+          </div>
+          <div className="p-6">
+            <div className="text-4xl font-bold text-purple-600 mb-2">24/7</div>
+            <div className="text-gray-600">Real-time Tracking</div>
+          </div>
+          <div className="p-6">
+            <div className="text-4xl font-bold text-orange-600 mb-2">∞</div>
+            <div className="text-gray-600">Immutable Records</div>
+          </div>
+        </div>
       </div>
     </section>
   );
