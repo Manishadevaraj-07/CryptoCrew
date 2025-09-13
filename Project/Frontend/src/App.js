@@ -10,28 +10,27 @@ import Footer from './components/Footer';
 import { fetchStatistics } from './api/api';
 import './styles.css';
 
-
 function App() {
-    const [stats, setStats] = useState([]);
+  const [stats, setStats] = useState([]);
 
-    useEffect(() => {
-        fetchStatistics()
-            .then(response => setStats(response.data))
-            .catch(error => console.error(error));
-    }, []);
+  useEffect(() => {
+    fetchStatistics()
+      .then(response => setStats(response.data))
+      .catch(error => console.error(error));
+  }, []);
 
-    return (
-        <div>
-            <Header />
-            <HeroSection />
-            <Statistics stats={stats} />
-            <Portals />
-            <Features />
-            <HowItWorks />
-            <CallToAction />
-            <Footer />
-        </div>
-    );
+  return (
+    <div className="app-container">
+      <Header />
+      <HeroSection />
+      <Statistics stats={stats} />
+      <Portals />
+      <Features />
+      <HowItWorks />
+      <CallToAction />
+      <Footer />
+    </div>
+  );
 }
 
 export default App;
