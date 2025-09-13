@@ -1,4 +1,6 @@
 import React from "react";
+import "../App.css";
+
 
 const stats = [
   { number: "100%", label: "Supply Chain Visibility" },

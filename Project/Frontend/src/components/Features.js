@@ -1,4 +1,6 @@
 import React from "react";
+import "../App.css";
+
 
 const featuresData = [
   { icon: "⛓", title: "Blockchain Security" },
