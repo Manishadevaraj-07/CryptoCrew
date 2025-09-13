@@ -1,11 +1,14 @@
 {
-  "name": "agri-trace-frontend",
+  "name": "agritrace-frontend",
   "version": "1.0.0",
   "private": true,
-  "scripts": {
-    "start": "live-server"
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1"
   },
-  "devDependencies": {
-    "live-server": "^1.2.2"
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build"
   }
 }
