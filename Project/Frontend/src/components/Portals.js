@@ -1,4 +1,3 @@
-// components/Portals.js
 import React from 'react';
 
 const Portals = () => {
@@ -71,8 +70,7 @@ const Portals = () => {
           {portals.map((portal, index) => (
             <div 
               key={index} 
-              className="bg-white rounded-2xl p-8 shadow-lg card-hover cursor-pointer" 
-              onClick={portal.onClick}
+              className="bg-white rounded-2xl p-8 shadow-lg card-hover"
             >
               <div className={`w-20 h-20 bg-${portal.color}-100 rounded-2xl flex items-center justify-center mx-auto mb-6`}>
                 <span className="text-4xl">{portal.icon}</span>
@@ -86,7 +84,10 @@ const Portals = () => {
                   </div>
                 ))}
               </div>
-              <button className={`w-full bg-${portal.color}-600 text-white py-3 rounded-xl hover:bg-${portal.color}-700 transition-colors font-semibold`}>
+              <button 
+                onClick={portal.onClick}
+                className={`w-full bg-${portal.color}-600 text-white py-3 rounded-xl hover:bg-${portal.color}-700 transition-colors font-semibold`}
+              >
                 {portal.action}
               </button>
             </div>
