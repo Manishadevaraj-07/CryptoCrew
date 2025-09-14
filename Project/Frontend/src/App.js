@@ -1,4 +1,3 @@
-// src/App.js
 import React from 'react';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
@@ -16,13 +15,35 @@ function App() {
   return (
     <div className="App">
       <Navigation />
-      <Hero />
-      <HowItWorks />
-      <UserPortals />
-      <Features />
-      <QRCodeDemo />
-      <CTA />
-      <Footer />
+
+      {/* Sections with IDs for scrolling */}
+      <section id="home">
+        <Hero />
+      </section>
+
+      <section id="how-it-works">
+        <HowItWorks />
+      </section>
+
+      <section id="user-portals">
+        <UserPortals />
+      </section>
+
+      <section id="features">
+        <Features />
+      </section>
+
+      <section id="qr-code-demo">
+        <QRCodeDemo />
+      </section>
+
+      <section id="cta">
+        <CTA />
+      </section>
+
+      <section id="footer">
+        <Footer />
+      </section>
     </div>
   );
 }

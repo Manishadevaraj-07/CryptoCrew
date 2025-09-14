@@ -1,7 +1,14 @@
-// src/components/Navigation.jsx
 import React from 'react';
 
 const Navigation = () => {
+  const handleNavClick = (id) => (e) => {
+    e.preventDefault();
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <nav className="bg-white shadow-sm sticky top-0 z-50 border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -17,12 +24,14 @@ const Navigation = () => {
               <p className="text-xs text-slate-500 -mt-1">Farm Tracking</p>
             </div>
           </div>
+          
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#" className="text-slate-600 hover:text-slate-800 font-medium transition-colors">Home</a>
-            <a href="#" className="text-slate-600 hover:text-slate-800 font-medium transition-colors">Solutions</a>
-            <a href="#" className="text-slate-600 hover:text-slate-800 font-medium transition-colors">About</a>
-            <a href="#" className="text-slate-600 hover:text-slate-800 font-medium transition-colors">Contact</a>
+            <button onClick={handleNavClick('home')} className="text-slate-600 hover:text-slate-800 font-medium transition-colors cursor-pointer">Home</button>
+            <button onClick={handleNavClick('solutions')} className="text-slate-600 hover:text-slate-800 font-medium transition-colors cursor-pointer">Solutions</button>
+            <button onClick={handleNavClick('about')} className="text-slate-600 hover:text-slate-800 font-medium transition-colors cursor-pointer">About</button>
+            <button onClick={handleNavClick('contact')} className="text-slate-600 hover:text-slate-800 font-medium transition-colors cursor-pointer">Contact</button>
           </div>
+
           <div className="flex items-center space-x-4">
             <button className="text-slate-600 hover:text-slate-800 font-medium transition-colors">
               Sign In
