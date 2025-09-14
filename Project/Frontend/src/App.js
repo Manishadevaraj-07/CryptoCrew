@@ -1,23 +1,27 @@
+// src/App.js
 import React from 'react';
-import Header from './components/Header';
+import Navigation from './components/Navigation';
 import Hero from './components/Hero';
-import Statistics from './components/Statistics';
-import Portals from './components/Portals';
-import Features from './components/Features';
 import HowItWorks from './components/HowItWorks';
-import CallToAction from './components/CallToAction';
+import UserPortals from './components/UserPortals';
+import Features from './components/Features';
+import QRCodeDemo from './components/QRCodeDemo';
+import CTA from './components/CTA';
 import Footer from './components/Footer';
+import { useAnimation } from './hooks/useAnimation';
 
 function App() {
+  useAnimation();
+  
   return (
-    <div className="App bg-gray-50">
-      <Header />
+    <div className="App">
+      <Navigation />
       <Hero />
-      <Statistics />
-      <Portals />
-      <Features />
       <HowItWorks />
-      <CallToAction />
+      <UserPortals />
+      <Features />
+      <QRCodeDemo />
+      <CTA />
       <Footer />
     </div>
   );

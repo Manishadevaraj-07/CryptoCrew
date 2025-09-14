@@ -1,0 +1,83 @@
+/* src/index.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: 'Inter', sans-serif;
+}
+
+.primary-bg {
+  background-color: #64748b;
+}
+
+.primary-light {
+  background-color: #94a3b8;
+}
+
+.primary-dark {
+  background-color: #475569;
+}
+
+.primary-text {
+  color: #64748b;
+}
+
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(100, 116, 139, 0.15);
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.step-line {
+  position: relative;
+}
+
+.step-line::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -25px;
+  width: 50px;
+  height: 2px;
+  background-color: #94a3b8;
+  transform: translateY(-50%);
+}
+
+.step-line::before {
+  content: '→';
+  position: absolute;
+  top: 50%;
+  right: -15px;
+  color: #64748b;
+  font-size: 18px;
+  font-weight: bold;
+  transform: translateY(-50%);
+}
+
+@media (max-width: 768px) {
+  .step-line::after,
+  .step-line::before {
+    display: none;
+  }
+}
+
+.subtle-pattern {
+  background-image: radial-gradient(circle at 1px 1px, rgba(100, 116, 139, 0.1) 1px, transparent 0);
+  background-size: 20px 20px;
+}
