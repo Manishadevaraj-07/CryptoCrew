@@ -8,22 +8,16 @@ export default function Signup() {
     phone: "",
     password: "",
     repeatPassword: "",
-    role: "farmer", // default role
+    role: "farmer", // default role (hidden)
     otp: "",
   });
 
   const [errors, setErrors] = useState({});
   const [generatedOtp, setGeneratedOtp] = useState("");
 
-  const roles = ["farmer", "distributor", "retailer"];
-
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
     setErrors({ ...errors, [e.target.name]: "" });
-  };
-
-  const handleRoleChange = (role) => {
-    setForm({ ...form, role });
   };
 
   const validate = () => {
@@ -60,11 +54,8 @@ export default function Signup() {
       alert("Please enter phone number or email first.");
       return;
     }
-
-    // Generate a fake 6-digit OTP
     const otp = Math.floor(100000 + Math.random() * 900000).toString();
     setGeneratedOtp(otp);
-
     console.log("Generated OTP (for testing):", otp);
     alert("OTP sent! (Check console for demo)");
   };
@@ -76,12 +67,10 @@ export default function Signup() {
       setErrors(validationErrors);
       return;
     }
-
     if (form.otp !== generatedOtp) {
       alert("Invalid OTP. Please try again.");
       return;
     }
-
     console.log("Signup data:", form);
     alert("Account created successfully!");
   };
@@ -89,32 +78,17 @@ export default function Signup() {
   return (
     <main className="flex items-center justify-center min-h-screen bg-green-50 px-4">
       <section className="w-full max-w-md bg-white p-8 rounded-2xl shadow-lg">
-        <h1 className="text-2xl font-bold text-center text-green-800 mb-4">
+        <h1 className="text-2xl font-bold text-center text-green-800 mb-6">
           Create account
         </h1>
 
-        {/* Role Tabs */}
-        <div className="flex justify-center gap-6 mb-6">
-          {roles.map((role) => (
-            <button
-              key={role}
-              type="button"
-              onClick={() => handleRoleChange(role)}
-              className={`px-4 py-2 font-semibold border-b-2 ${
-                form.role === role
-                  ? "border-green-600 text-green-800"
-                  : "border-transparent text-gray-500 hover:text-green-700"
-              }`}
-            >
-              {role.charAt(0).toUpperCase() + role.slice(1)}
-            </button>
-          ))}
-        </div>
-
+        {/* Signup Form */}
         <form onSubmit={handleSubmit} noValidate className="space-y-4">
           {/* Firstname */}
           <div>
-            <label className="block text-sm font-medium text-green-700">Firstname</label>
+            <label className="block text-sm font-medium text-green-700">
+              Firstname
+            </label>
             <input
               type="text"
               name="firstname"
@@ -125,12 +99,16 @@ export default function Signup() {
                 errors.firstname ? "border-red-500" : "border-green-300"
               } px-3 py-2 focus:ring-2 focus:ring-green-400`}
             />
-            {errors.firstname && <small className="text-red-500 text-sm">{errors.firstname}</small>}
+            {errors.firstname && (
+              <small className="text-red-500 text-sm">{errors.firstname}</small>
+            )}
           </div>
 
           {/* Lastname */}
           <div>
-            <label className="block text-sm font-medium text-green-700">Lastname</label>
+            <label className="block text-sm font-medium text-green-700">
+              Lastname
+            </label>
             <input
               type="text"
               name="lastname"
@@ -141,12 +119,16 @@ export default function Signup() {
                 errors.lastname ? "border-red-500" : "border-green-300"
               } px-3 py-2 focus:ring-2 focus:ring-green-400`}
             />
-            {errors.lastname && <small className="text-red-500 text-sm">{errors.lastname}</small>}
+            {errors.lastname && (
+              <small className="text-red-500 text-sm">{errors.lastname}</small>
+            )}
           </div>
 
           {/* Email */}
           <div>
-            <label className="block text-sm font-medium text-green-700">Email</label>
+            <label className="block text-sm font-medium text-green-700">
+              Email
+            </label>
             <input
               type="email"
               name="email"
@@ -157,12 +139,16 @@ export default function Signup() {
                 errors.email ? "border-red-500" : "border-green-300"
               } px-3 py-2 focus:ring-2 focus:ring-green-400`}
             />
-            {errors.email && <small className="text-red-500 text-sm">{errors.email}</small>}
+            {errors.email && (
+              <small className="text-red-500 text-sm">{errors.email}</small>
+            )}
           </div>
 
           {/* Phone */}
           <div>
-            <label className="block text-sm font-medium text-green-700">Phone</label>
+            <label className="block text-sm font-medium text-green-700">
+              Phone
+            </label>
             <input
               type="tel"
               name="phone"
@@ -173,13 +159,17 @@ export default function Signup() {
                 errors.phone ? "border-red-500" : "border-green-300"
               } px-3 py-2 focus:ring-2 focus:ring-green-400`}
             />
-            {errors.phone && <small className="text-red-500 text-sm">{errors.phone}</small>}
+            {errors.phone && (
+              <small className="text-red-500 text-sm">{errors.phone}</small>
+            )}
           </div>
 
           {/* OTP */}
           <div>
             <div className="flex items-center justify-between">
-              <label className="block text-sm font-medium text-green-700">OTP</label>
+              <label className="block text-sm font-medium text-green-700">
+                OTP
+              </label>
               <button
                 type="button"
                 onClick={handleSendOtp}
@@ -198,12 +188,16 @@ export default function Signup() {
                 errors.otp ? "border-red-500" : "border-green-300"
               } px-3 py-2 focus:ring-2 focus:ring-green-400`}
             />
-            {errors.otp && <small className="text-red-500 text-sm">{errors.otp}</small>}
+            {errors.otp && (
+              <small className="text-red-500 text-sm">{errors.otp}</small>
+            )}
           </div>
 
           {/* Password */}
           <div>
-            <label className="block text-sm font-medium text-green-700">Password</label>
+            <label className="block text-sm font-medium text-green-700">
+              Password
+            </label>
             <input
               type="password"
               name="password"
@@ -214,12 +208,16 @@ export default function Signup() {
                 errors.password ? "border-red-500" : "border-green-300"
               } px-3 py-2 focus:ring-2 focus:ring-green-400`}
             />
-            {errors.password && <small className="text-red-500 text-sm">{errors.password}</small>}
+            {errors.password && (
+              <small className="text-red-500 text-sm">{errors.password}</small>
+            )}
           </div>
 
           {/* Repeat Password */}
           <div>
-            <label className="block text-sm font-medium text-green-700">Repeat password</label>
+            <label className="block text-sm font-medium text-green-700">
+              Repeat password
+            </label>
             <input
               type="password"
               name="repeatPassword"
@@ -231,7 +229,9 @@ export default function Signup() {
               } px-3 py-2 focus:ring-2 focus:ring-green-400`}
             />
             {errors.repeatPassword && (
-              <small className="text-red-500 text-sm">{errors.repeatPassword}</small>
+              <small className="text-red-500 text-sm">
+                {errors.repeatPassword}
+              </small>
             )}
           </div>
 
