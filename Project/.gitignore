@@ -1,0 +1,62 @@
+# ===========================
+# Node.js / Backend
+# ===========================
+# Dependency folder
+Backend/node_modules/
+
+# Logs
+Backend/logs/
+*.log
+
+# Environment files
+Backend/.env
+Backend/.env.local
+Backend/.env.development.local
+Backend/.env.test.local
+Backend/.env.production.local
+
+# Build / output folders (if any)
+Backend/dist/
+Backend/build/
+
+# ===========================
+# React / Frontend
+# ===========================
+# Dependency folder
+Frontend/node_modules/
+
+# Build output
+Frontend/build/
+Frontend/dist/
+
+# Environment files
+Frontend/.env
+Frontend/.env.local
+Frontend/.env.development.local
+Frontend/.env.test.local
+Frontend/.env.production.local
+
+# ===========================
+# Editor / IDE
+# ===========================
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# ===========================
+# OS generated files
+# ===========================
+.DS_Store
+Thumbs.db
+*.swp
+*.bak
+*.tmp
+
+# ===========================
+# Optional
+# ===========================
+# Test coverage
+coverage/
