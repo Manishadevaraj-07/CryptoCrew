@@ -25,9 +25,7 @@ const Hero = () => {
           <button className="primary-bg text-white px-10 py-4 rounded-xl font-semibold text-lg shadow-lg hover:bg-slate-700 transition-all transform hover:scale-105">
             Start Tracking Now
           </button>
-          <button className="bg-white text-slate-700 px-10 py-4 rounded-xl font-semibold text-lg border-2 border-slate-200 hover:border-slate-300 transition-all transform hover:scale-105">
-            View Demo
-          </button>
+          
         </div>
         
         {/* Stats */}

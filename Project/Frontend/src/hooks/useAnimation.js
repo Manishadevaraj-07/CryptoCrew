@@ -1,8 +1,24 @@
-// src/hooks/useAnimation.js
 import { useEffect } from 'react';
 
 export const useAnimation = () => {
   useEffect(() => {
+    // Smooth scrolling for navigation
+    const handleNavClick = (e) => {
+      if (e.target.tagName === 'BUTTON' && e.target.textContent) {
+        const targetId = e.target.textContent.toLowerCase().replace(' ', '-');
+        const targetElement = document.getElementById(targetId);
+        
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }
+    };
+
+    document.addEventListener('click', handleNavClick);
+    
     // Intersection Observer for fade-in animations
     const observerOptions = {
       threshold: 0.1,
@@ -22,47 +38,8 @@ export const useAnimation = () => {
       observer.observe(el);
     });
 
-    // Portal card interactions
-    document.querySelectorAll('.card-hover').forEach(card => {
-      card.addEventListener('click', function() {
-        const button = this.querySelector('button');
-        const portalName = button.textContent.trim();
-        
-        // Add click animation
-        this.style.transform = 'scale(0.98)';
-        setTimeout(() => {
-          this.style.transform = '';
-          alert(`Welcome to ${portalName}! Redirecting to your dashboard...`);
-        }, 150);
-      });
-    });
-
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      });
-    });
-
-    // Button hover effects
-    document.querySelectorAll('button').forEach(button => {
-      button.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-2px)';
-      });
-      
-      button.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0)';
-      });
-    });
-
     return () => {
+      document.removeEventListener('click', handleNavClick);
       observer.disconnect();
     };
   }, []);

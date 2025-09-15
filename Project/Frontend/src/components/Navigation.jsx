@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const Navigation = () => {
+const Navigation = ({ setShowAuth, openChatBox }) => {
   const navigate = useNavigate();
 
   const handleNavClick = (id) => (e) => {
@@ -15,7 +15,8 @@ const Navigation = () => {
   const handleSignIn = () => {
     navigate('/Login');
   };
-  const handlesignup = () => {
+  
+  const handleSignUp = () => {
     navigate('/role');
   }
 
@@ -37,16 +38,16 @@ const Navigation = () => {
           
           <div className="hidden md:flex items-center space-x-8">
             <button onClick={handleNavClick('home')} className="text-slate-600 hover:text-slate-800 font-medium transition-colors cursor-pointer">Home</button>
-            <button onClick={handleNavClick('solutions')} className="text-slate-600 hover:text-slate-800 font-medium transition-colors cursor-pointer">Solutions</button>
-            <button onClick={handleNavClick('about')} className="text-slate-600 hover:text-slate-800 font-medium transition-colors cursor-pointer">About</button>
-            <button onClick={handleNavClick('contact')} className="text-slate-600 hover:text-slate-800 font-medium transition-colors cursor-pointer">Contact</button>
+            <button onClick={handleNavClick('how-it-works')} className="text-slate-600 hover:text-slate-800 font-medium transition-colors cursor-pointer">How it Works</button>
+            <button onClick={handleNavClick('features')} className="text-slate-600 hover:text-slate-800 font-medium transition-colors cursor-pointer">About</button>
+            <button onClick={openChatBox} className="text-slate-600 hover:text-slate-800 font-medium transition-colors cursor-pointer">Contact</button>
           </div>
 
           <div className="flex items-center space-x-4">
             <button onClick={handleSignIn} className="text-slate-600 hover:text-slate-800 font-medium transition-colors">
               Sign In
             </button>
-            <button onClick={handlesignup} className="primary-bg text-white px-6 py-2 rounded-lg font-semibold hover:bg-slate-700 transition-colors">
+            <button onClick={handleSignUp} className="primary-bg text-white px-6 py-2 rounded-lg font-semibold hover:bg-slate-700 transition-colors">
               Get Started
             </button>
           </div>

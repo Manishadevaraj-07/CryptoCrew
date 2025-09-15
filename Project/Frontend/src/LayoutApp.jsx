@@ -6,8 +6,10 @@ import UserPortals from './components/UserPortals';
 import Features from './components/Features';
 import QRCodeDemo from './components/QRCodeDemo';
 import CTA from './components/CTA';
+import Contact from './components/Contact'; // Add Contact import
 import Footer from './components/Footer';
 import { useAnimation } from './hooks/useAnimation';
+
 
 export default function LayoutApp({ setShowAuth }) {
   useAnimation();
@@ -38,6 +40,10 @@ export default function LayoutApp({ setShowAuth }) {
 
       <section id="cta">
         <CTA />
+      </section>
+
+      <section id="contact">
+        <Contact />
       </section>
 
       <section id="footer">

@@ -1,4 +1,3 @@
-// src/components/UserPortals.jsx
 import React from 'react';
 
 const UserPortals = () => {
@@ -32,16 +31,6 @@ const UserPortals = () => {
       title: "Retail Dashboard",
       description: "Inventory management, QR code generation, and sales analytics for retail operations",
       bgColor: "bg-slate-400"
-    },
-    {
-      icon: (
-        <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
-        </svg>
-      ),
-      title: "Consumer Scanner",
-      description: "Scan product QR codes to access complete traceability information and product history",
-      bgColor: "primary-dark"
     }
   ];
 
@@ -56,7 +45,7 @@ const UserPortals = () => {
           <p className="text-xl text-slate-600">Tailored interfaces for every role in the supply chain</p>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {portals.map((portal, index) => (
             <div key={index} className="card-hover bg-white rounded-2xl p-8 cursor-pointer border-2 border-slate-200 hover:border-slate-300">
               <div className="text-center">
@@ -66,7 +55,7 @@ const UserPortals = () => {
                 <h3 className="text-xl font-semibold text-slate-800 mb-4">{portal.title}</h3>
                 <p className="text-slate-600 mb-8">{portal.description}</p>
                 <button className="w-full primary-bg text-white py-3 rounded-xl font-semibold hover:bg-slate-700 transition-colors">
-                  Enter {portal.title}
+                   {portal.title}
                 </button>
               </div>
             </div>
